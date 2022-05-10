@@ -27,5 +27,13 @@ public class ShelfbookApplication implements CommandLineRunner {
 //        if (rows > 0) {
 //            System.out.println("New row inserted successfully");
 //        }
+
+//        String sql = "UPDATE shelfbook.books " +
+//                "SET name='maths', author='anton2' " +
+//                "WHERE id=4;";
+//
+//        int rows = jdbcTemplate.update(sql);
+//
+//        System.out.println("Rows: " + rows);
     }
 }

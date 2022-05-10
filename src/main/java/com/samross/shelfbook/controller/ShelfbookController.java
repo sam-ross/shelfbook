@@ -38,7 +38,7 @@ public class ShelfbookController {
 
     @GetMapping("/books/{bookId}")
     public ResponseEntity<Book> getBookById(@PathVariable int bookId) {
-        final String SQL_QUERY_1 = "SELECT * FROM shelfbook.books WHERE id=?";
+        final String SQL_QUERY_1 = "SELECT * FROM shelfbook.books WHERE id=?;";
 
          Book book = jdbcTemplate.queryForObject(
                 SQL_QUERY_1,
@@ -65,12 +65,21 @@ public class ShelfbookController {
             System.out.println("New row inserted successfully");
         }
 
-//        return ResponseEntity.ok("New row inserted successfully");
-//        return new ResponseEntity.of(
-//                "asdf",
-//                HttpStatus.CREATED
-//        );
-
         return new ResponseEntity<>("New row inserted successfully", HttpStatus.CREATED);
+    }
+
+    @PutMapping("/books/{bookId}")
+    public ResponseEntity<String> updateBook(
+            @PathVariable int bookId, @RequestParam String name, @RequestParam String author
+    ) {
+        String sql = "UPDATE shelfbook.books " +
+                "SET name='" + name + "', author='" + author + "' " +
+                "WHERE id=" + bookId + ";";
+
+        int rows = jdbcTemplate.update(sql);
+
+        System.out.println("Rows: " + rows);
+
+        return ResponseEntity.ok("Book updated successfully");
     }
 }
