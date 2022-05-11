@@ -40,7 +40,7 @@ public class ShelfbookController {
     public ResponseEntity<Book> getBookById(@PathVariable int bookId) {
         final String SQL_QUERY_1 = "SELECT * FROM shelfbook.books WHERE id=?;";
 
-         Book book = jdbcTemplate.queryForObject(
+         List<Book> books = jdbcTemplate.query(
                 SQL_QUERY_1,
                 new Object[]{bookId},
                 (rs, rowNum) ->
@@ -51,7 +51,11 @@ public class ShelfbookController {
                         )
         );
 
-        return ResponseEntity.ok(book);
+
+        if (books.size() == 1) {
+            return ResponseEntity.ok(books.get(0));
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping("/books")
@@ -81,5 +85,16 @@ public class ShelfbookController {
         System.out.println("Rows: " + rows);
 
         return ResponseEntity.ok("Book updated successfully");
+    }
+
+    @DeleteMapping("/books/{bookId}")
+    public ResponseEntity<String> deleteBook(@PathVariable int bookId) {
+        String sql = "DELETE FROM shelfbook.books WHERE id=" + bookId + ";";
+
+        int rows = jdbcTemplate.update(sql);
+
+        System.out.println("Rows deleted: " + rows);
+
+        return ResponseEntity.ok("Book deleted successfully");
     }
 }
