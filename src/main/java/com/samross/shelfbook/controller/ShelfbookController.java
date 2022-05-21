@@ -14,6 +14,12 @@ public class ShelfbookController {
     @Autowired
     private ShelfbookDao shelfbookDao;
 
+    @CrossOrigin
+    @GetMapping("/helloSam")
+    public ResponseEntity<String> helloSpring() throws Exception {
+        return ResponseEntity.ok("Hello Sam, this is a message from Spring!!");
+    }
+
     @GetMapping("/hello")
     public ResponseEntity<String> hello(@RequestParam(value = "name", defaultValue = "World") String name) {
         return ResponseEntity.ok(String.format("Hello %s!!", name));
