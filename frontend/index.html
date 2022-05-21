@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js"></script>
+    <audio id="fart" src="./resources/fartNoise.mp3" preload="auto"></audio>
+    <title>My first vscode webpage</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="shelfbook" id="header1">Shelfbook</h1>
+
+        <nav class="user-nav">
+          <div class="user-nav__books">
+            <span>Books</span>
+          </div>
+          <div class="user-nav__friends">
+            <span>Friends</span>
+          </div>
+
+          <a class="user-nav__user" href="#">
+            <img
+              src="./resources/sam4.jpeg"
+              alt="User photo"
+              class="user-nav__user-photo"
+            />
+            <span>Sam</span>
+          </a>
+        </nav>
+      </header>
+
+      <!-- changing the height of the main doesn't stop contents from overflowing -->
+      <main>
+        <div class="buttons-section">
+          <button onclick="showTimesClicked()" class="button-6" role="button">
+            Click me!!
+          </button>
+
+          <button onclick="changeHeader()" class="button-6" role="button">
+            Update header!!
+          </button>
+
+          <button onclick="callHelloEndpoint()" class="button-6" role="button">
+            Hello endpoint
+          </button>
+
+          <button onclick="alertUser()" class="button-6" role="button">
+            🚨
+          </button>
+
+          <button onclick="confirmFart()" class="button-6" role="button">
+            Do stinky fart 💩
+          </button>
+
+          <button onclick="changeAuthor()" class="button-6" role="button">
+            Take credit??
+          </button>
+        </div>
+
+        <div class="paragraph-section">
+          <p id="para1">Knowledge is power</p>
+        </div>
+
+        <div class="input-fields-section">
+          <button onclick="helloWorld()" class="button-6" role="button">
+            Hello world!!
+          </button>
+
+          <button onclick="springMessage()" class="button-6" role="button">
+            Call endpoint
+          </button>
+        </div>
+      </main>
+      <footer id="footerDesigner">By Sam Ross</footer>
+
+      <!-- <a href="localhost:7777/hello" class="button-6">Get books</a> -->
+    </div>
+  </body>
+</html>
