@@ -73,3 +73,70 @@ function springMessage() {
     console.log(Http.responseText);
   };
 }
+
+var bookNumber = 1;
+function insertText() {
+  const node = document.createElement("li");
+  const textNode = document.createTextNode("Book " + bookNumber);
+
+  node.appendChild(textNode);
+
+  document.getElementById("book-list").appendChild(node);
+  console.log(document.getElementById("book-list"));
+  bookNumber++;
+}
+
+function deleteText() {
+  if (bookNumber > 1) {
+    var list = document.getElementById("book-list");
+    list.removeChild(list.lastElementChild);
+    bookNumber--;
+  } else {
+    console.log("No books left to remove");
+  }
+}
+
+function insertBook() {
+  var btn = document.createElement("button");
+  btn.innerHTML = "Click me";
+  btn.className("button-6");
+  document.getElementById("book-section").appendChild(btn);
+}
+
+function insertButton() {
+  var btn = document.createElement("button");
+  btn.innerHTML = "Click me";
+  document.getElementById("book-section").appendChild(btn);
+}
+
+function insertBookLink() {
+  var buttonA = document.createElement("a");
+  buttonA.href = "#";
+  buttonA.innerText = "Book link";
+  buttonA.className = "book-link";
+  document.getElementById("book-section").appendChild(buttonA);
+}
+
+function insertImage() {
+  var bookImage = document.createElement("img");
+  bookImage.src = "./resources/bookSpine.png";
+  bookImage.className = "book-image";
+  document.getElementById("book-section").appendChild(bookImage);
+}
+
+var bookCounter = 1;
+function insertBooks() {
+  var bookImage = document.createElement("img");
+  var bookColour;
+  if (bookCounter % 3 == 1) {
+    bookColour = "Red";
+  } else if (bookCounter % 3 == 2) {
+    bookColour = "Purple";
+  } else {
+    bookColour = "Green";
+  }
+  bookImage.src = "./resources/book" + bookColour + ".png";
+  bookImage.className = "book-image";
+  document.getElementById("book-section").appendChild(bookImage);
+  bookCounter++;
+}

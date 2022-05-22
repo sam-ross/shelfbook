@@ -121,14 +121,24 @@ body {
 
 .input-fields-section {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
   /* height being set to 100% means it is set to a hardcoded value the same as the outer div (main in this case).
   It doesn't mean that the div will only fill up to the boundaries*/
   /* height: 50%; */
+  align-items: center;
   justify-content: flex-start;
 
   height: 70rem;
+}
+
+.book-link {
+  font-size: 4rem;
+}
+
+.book-image {
+  max-width: 30%;
+  height: auto;
 }
 
 footer {
