@@ -136,9 +136,62 @@ body {
   font-size: 4rem;
 }
 
+.book-container {
+  position: relative;
+}
+
 .book-image {
-  max-width: 30%;
+  max-width: 100%;
   height: auto;
+}
+
+.book-name {
+  font-weight: 300;
+  font-size: 4rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -58%);
+}
+
+.book-container textarea {
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-weight: 300;
+
+  resize: none;
+  position: absolute;
+
+  text-align: center;
+
+  top: 50%;
+  left: 50%;
+
+  /* outline: none; */
+  border: none;
+  background: transparent;
+
+  overflow: hidden;
+}
+
+#book-textarea-title {
+  font-size: 2.5rem;
+
+  width: 58%;
+  height: 70%;
+
+  transform: translate(-53%, -50%);
+  line-height: 1;
+}
+
+#book-textarea-author {
+  font-size: 2rem;
+
+  width: 20%;
+  height: 70%;
+
+  transform: translate(140%, -50%);
 }
 
 footer {

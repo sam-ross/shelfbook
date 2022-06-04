@@ -119,7 +119,7 @@ function insertBookLink() {
 
 function insertImage() {
   var bookImage = document.createElement("img");
-  bookImage.src = "./resources/bookSpine.png";
+  bookImage.src = "./resources/books/bookSpine.png";
   bookImage.className = "book-image";
   document.getElementById("book-section").appendChild(bookImage);
 }
@@ -135,8 +135,13 @@ function insertBooks() {
   } else {
     bookColour = "Green";
   }
-  bookImage.src = "./resources/book" + bookColour + ".png";
+  bookImage.src = "./resources/books/book" + bookColour + ".png";
   bookImage.className = "book-image";
   document.getElementById("book-section").appendChild(bookImage);
   bookCounter++;
+}
+
+function saveTitle() {
+  var textareaText = document.getElementById("book-textarea-title").value;
+  window.alert("Title saved: " + textareaText);
 }
